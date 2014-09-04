@@ -1,0 +1,9 @@
+{
+    "GroupVisitors": {
+        "submenu": "Group Visitors",
+        "even": "even",
+        "uneven": "uneven",
+        "label": "times",
+        "widget": "Group visitors"
+    }
+}

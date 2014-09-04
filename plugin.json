@@ -1,0 +1,13 @@
+{
+ "name": "GroupVisitors",
+ "version": "0.1.0",
+ "description": "Group Visitors",
+ "theme": false,
+ "authors": [
+     {
+         "name": "Piwik",
+         "email": "",
+         "homepage": ""
+     }
+ ]
+}
