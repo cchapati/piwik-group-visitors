@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<result>
+    <row>
+        <label>even</label>
+        <nb_visits>4</nb_visits>
+    </row>
+    <row>
+        <label>uneven</label>
+        <nb_visits>5</nb_visits>
+    </row>
+</result>
