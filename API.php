@@ -8,6 +8,7 @@
  */
 namespace Piwik\Plugins\GroupVisitors;
 
+use Piwik\Piwik;
 use Piwik\DataTable;
 use Piwik\DataTable\Row;
 use Piwik\Archive;
@@ -25,6 +26,10 @@ class API extends \Piwik\Plugin\API
     {
         $archive = Archive::build($idSite, $period, $date, $segment);
         $dataTable = $archive->getDataTable('GroupVisitors_report');
+
+        $dataTable->queueFilter("ColumnCallbackReplace", array("label", function($label) {
+            return Piwik::translate("GroupVisitors_" . $label);
+        }));
 
         return $dataTable;
     }
