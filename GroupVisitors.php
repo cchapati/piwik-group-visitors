@@ -24,6 +24,6 @@ class GroupVisitors extends \Piwik\Plugin
 
     public function getJsFiles(&$jsFiles)
     {
-        $jsFiles[] = 'plugins/GroupVisitors/javascripts/plugin.js';
+        $jsFiles[] = '';
     }
 }

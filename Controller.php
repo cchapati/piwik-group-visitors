@@ -9,10 +9,7 @@
 namespace Piwik\Plugins\GroupVisitors;
 
 use Piwik\View;
-use Piwik\Plugins\GroupVisitors\Reports\GetGroupVisitors;
-/**
- *
- */
+
 class Controller extends \Piwik\Plugin\Controller
 {
 

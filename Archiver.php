@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: patryk
- * Date: 03.09.14
- * Time: 11:50
- */
 
 namespace Piwik\Plugins\GroupVisitors;
 use Piwik\DataTable;
@@ -17,7 +11,7 @@ class Archiver extends \Piwik\Plugin\Archiver {
 
         $logAggregator = $this->getLogAggregator();
 
-        $data = $logAggregator->queryVisitsByDimension(
+        $results = $logAggregator->queryVisitsByDimension(
             $dimensions = array('visitor_localtime')
         );
 
@@ -28,7 +22,7 @@ class Archiver extends \Piwik\Plugin\Archiver {
 
         $dataTable = new DataTable();
 
-        while ($row = $data->fetch()) {
+        while ($row = $results->fetch()) {
 
             $time = $row['visitor_localtime'];
             $visits = $row[Metrics::INDEX_NB_VISITS];
@@ -51,14 +45,14 @@ class Archiver extends \Piwik\Plugin\Archiver {
 
         $archiveProcessor = $this->getProcessor();
 
-        $archiveProcessor->insertBlobRecord('GroupVisitors_report', $dataTable->getSerialized(500));
+        $archiveProcessor->insertBlobRecord('GroupVisitors_report', $dataTable->getSerialized($this->maximumRows));
 
     }
 
     public function aggregateMultipleReports()
     {
         $archiveProcessor = $this->getProcessor();
-        $archiveProcessor->aggregateDataTableRecords('GroupVisitors_report', 500);
+        $archiveProcessor->aggregateDataTableRecords('GroupVisitors_report', $this->maximumRows);
     }
 
 } 

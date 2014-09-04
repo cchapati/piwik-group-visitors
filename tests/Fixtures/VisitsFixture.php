@@ -33,8 +33,8 @@ class VisitsFixture extends Fixture {
             $idSite = self::createWebsite($this->dateTime);
             $this->assertSame($this->idSite, $idSite);
         }
-
-    } 
+ 
+    }
 
     public function trackVisits() {
 
