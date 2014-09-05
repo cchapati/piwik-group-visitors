@@ -3,7 +3,6 @@
 namespace Piwik\Plugins\GroupVisitors;
 use Piwik\DataTable;
 
-require_once PIWIK_INCLUDE_PATH . '/plugins/GroupVisitors/ArchiveDataTableFactory.php';
 
 class Archiver extends \Piwik\Plugin\Archiver {
 

@@ -4,9 +4,8 @@
  "description": "Group Visitors",
  "theme": false,
  "require": {
-     "php": ">=5.3.2",
-     "phpunit/phpunit": "~4.1",
-     "piwik": ">=2.5.0"
+        "php": ">=5.3.2",
+        "piwik": ">=2.5.0"
  },
  "authors": [
      {
