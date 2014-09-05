@@ -11,7 +11,7 @@ use Piwik\Metrics;
  * @group GroupVisitors
  * @group Plugins
  */
-class ArchiverDataTableProviderTest extends \DatabaseTestCase {
+class ArchiverDataTableFactoryTest extends \DatabaseTestCase {
 
 
     private $records;
