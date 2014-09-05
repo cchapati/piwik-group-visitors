@@ -28,9 +28,7 @@ class GetGroupVisitors extends Report
 
     }
 
-    /**
-     * @param ViewDataTable $view
-     */
+
     public function configureView(ViewDataTable $view)
     {
         if (!empty($this->dimension)) {
@@ -48,9 +46,7 @@ class GetGroupVisitors extends Report
         $view->config->columns_to_display = array('label', 'nb_visits');
     }
 
-    /**
-     * @return \Piwik\Plugin\Report[]
-     */
+
     public function getRelatedReports()
     {
          return array();

@@ -2,7 +2,8 @@
 
 namespace Piwik\Plugins\GroupVisitors;
 use Piwik\DataTable;
-use Piwik\Metrics;
+
+require_once PIWIK_INCLUDE_PATH . '/plugins/GroupVisitors/ArchiveDataTableFactory.php';
 
 class Archiver extends \Piwik\Plugin\Archiver {
 
@@ -12,36 +13,18 @@ class Archiver extends \Piwik\Plugin\Archiver {
         $logAggregator = $this->getLogAggregator();
 
         $results = $logAggregator->queryVisitsByDimension(
-            $dimensions = array('visitor_localtime')
+            $dimensions = array('visitor_localtime'),
+            $where = '',
+            $additionalSelects = array('HOUR(visitor_localtime)')
         );
 
-        $arr = array(
-            array("label" => "even", "nb_visits" => 0),
-            array("label" => "uneven", "nb_visits" => 0)
-        );
+        $provider = new ArchiveDataTableFactory($results);
 
-        $dataTable = new DataTable();
-
-        while ($row = $results->fetch()) {
-
-            $time = $row['visitor_localtime'];
-            $visits = $row[Metrics::INDEX_NB_VISITS];
-
-            $dateTime = new \DateTime($time);
-
-            $hour = $dateTime->format("H") + 1;
-
-            if ($hour % 2 == 0)
-                $arr[0]["nb_visits"] += $visits;
-            else
-                $arr[1]["nb_visits"] += $visits;
+        while ($row = $results->fetch())
+            $provider->calculate($row);
 
 
-        }
-
-
-        $dataTable->addRowsFromSimpleArray($arr);
-
+        $dataTable = $provider->getDataTable();
 
         $archiveProcessor = $this->getProcessor();
 

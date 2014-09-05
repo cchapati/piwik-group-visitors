@@ -13,9 +13,7 @@ use Piwik\DataTable;
 use Piwik\DataTable\Row;
 use Piwik\Archive;
 
-/**
- * API for plugin GroupVisitors
- */
+
 class API extends \Piwik\Plugin\API
 {
 

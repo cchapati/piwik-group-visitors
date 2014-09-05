@@ -8,13 +8,10 @@
  */
 namespace Piwik\Plugins\GroupVisitors;
 
-/**
- */
+
 class GroupVisitors extends \Piwik\Plugin
 {
-    /**
-     * @see Piwik\Plugin::getListHooksRegistered
-     */
+
     public function getListHooksRegistered()
     {
         return array(
