@@ -11,7 +11,7 @@ use Piwik\Metrics;
  * @group GroupVisitors
  * @group Plugins
  */
-class ArchiverDataTableFactoryTest extends \DatabaseTestCase {
+class ArchiverDataTableFactoryTest extends \PHPUnit_Framework_TestCase {
 
 
     private $records;
@@ -19,9 +19,6 @@ class ArchiverDataTableFactoryTest extends \DatabaseTestCase {
 
     public function setUp()
     {
-        $this->fixture = new VisitsFixture();
-        $this->configureFixture();
-        $this->fixture->performSetUp();
         $this->expected = array("even" => 0, "uneven" => 0);
 
         $this->generateRecords();
@@ -60,7 +57,7 @@ class ArchiverDataTableFactoryTest extends \DatabaseTestCase {
 
     public function tearDown()
     {
-        parent::tearDown();
+
     }
 
 
