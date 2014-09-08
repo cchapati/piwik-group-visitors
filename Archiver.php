@@ -2,28 +2,32 @@
 
 namespace Piwik\Plugins\GroupVisitors;
 use Piwik\DataTable;
-
+use Piwik\Db;
+use Piwik\Metrics;
 
 class Archiver extends \Piwik\Plugin\Archiver {
 
 
     public function aggregateDayReport() {
 
+        $dataTable = new DataTable();
+
         $logAggregator = $this->getLogAggregator();
 
         $results = $logAggregator->queryVisitsByDimension(
-            $dimensions = array('visitor_localtime'),
-            $where = '',
-            $additionalSelects = array('HOUR(visitor_localtime)')
+            $dimensions = array(
+                'md' => 'MOD(HOUR(log_visit.visitor_localtime), 2)'
+            )
         );
 
-        $provider = new ArchiveDataTableFactory($results);
+        $rows = $results->fetchAll();
 
-        while ($row = $results->fetch())
-            $provider->calculate($row);
+        $records = array(
+            array("label" => "even", "nb_visits" => $rows[1][Metrics::INDEX_NB_VISITS]),
+            array("label" => "uneven", "nb_visits" => $rows[0][Metrics::INDEX_NB_VISITS])
+        );
 
-
-        $dataTable = $provider->getDataTable();
+        $dataTable->addRowsFromSimpleArray($records);
 
         $archiveProcessor = $this->getProcessor();
 
