@@ -14,8 +14,14 @@ use Piwik\Plugin\ViewDataTable;
 use Piwik\View;
 
 
+/**
+ * Class GetGroupVisitors
+ *
+ * @package Piwik\Plugins\GroupVisitors\Reports
+ */
 class GetGroupVisitors extends Report
 {
+
     protected function init()
     {
         parent::init();
@@ -28,17 +34,21 @@ class GetGroupVisitors extends Report
 
     }
 
-
+    /**
+     * @param ViewDataTable $view
+     */
     public function configureView(ViewDataTable $view)
     {
         if (!empty($this->dimension)) {
-           $view->config->addTranslations(array('label' => $this->dimension->getName()));
+            $view
+                ->config
+                ->addTranslations(array('label' => $this->dimension->getName()));
         }
 
 
-        $view->config->addTranslations(array(
-            'label' => Piwik::translate("GroupVisitors_label")
-        ));
+        $view->config->addTranslations(
+            array('label' => Piwik::translate("GroupVisitors_label"))
+        );
 
         $view->config->show_search = true;
         $view->requestConfig->filter_sort_column = 'nb_visits';
@@ -46,7 +56,9 @@ class GetGroupVisitors extends Report
         $view->config->columns_to_display = array('label', 'nb_visits');
     }
 
-
+    /**
+     * @return array|\Piwik\Plugin\Report[]
+     */
     public function getRelatedReports()
     {
          return array();

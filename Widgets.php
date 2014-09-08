@@ -11,14 +11,21 @@ namespace Piwik\Plugins\GroupVisitors;
 use Piwik\View;
 use Piwik\WidgetsList;
 
+/**
+ * Class Widgets
+ *
+ * @package Piwik\Plugins\GroupVisitors
+ */
 
 class Widgets extends \Piwik\Plugin\Widgets
 {
 
     protected $category = 'VisitsSummary_VisitsSummary';
 
-    protected function init() {
-       $this->addWidget('GroupVisitors_widget', $method = 'index');
+
+    protected function init()
+    {
+        $this->addWidget('GroupVisitors_widget', $method = 'index');
     }
 
 }

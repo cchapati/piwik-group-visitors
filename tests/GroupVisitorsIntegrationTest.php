@@ -1,4 +1,11 @@
 <?php
+/**
+ * Piwik - free/libre analytics platform
+ *
+ * @link http://piwik.org
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
+ *
+ */
 
 namespace Piwik\Plugins\GroupVisitors\tests;
 
@@ -7,28 +14,43 @@ use Piwik\Tests\IntegrationTestCase;
 use Piwik\Plugins\GroupVisitors\tests\Fixtures\VisitsFixture;
 
 /**
+ * Class GroupVisitorsIntegrationTest
+ *
+ * @package Piwik\Plugins\GroupVisitors\tests
  * @group GroupVisitors
  * @group GroupVisitorsIntegrationTest
  * @group Plugins
  */
-class GroupVisitorsIntegrationTest extends IntegrationTestCase {
+class GroupVisitorsIntegrationTest extends IntegrationTestCase
+{
 
     public static $fixture = null;
 
 
-    public static function getOutputPrefix() {
+    /**
+     * @return mixed|string
+     */
+    public static function getOutputPrefix()
+    {
         return "";
     }
 
     /**
+     * @param $api
+     * @param $params
      * @dataProvider getApiForTesting
      * @group GroupVisitorsIntegrationTest
      */
-    public function testApi($api, $params) {
+    public function testApi($api, $params)
+    {
         $this->runApiTests($api, $params);
     }
 
-    public function getApiForTesting() {
+    /**
+     * @return array
+     */
+    public function getApiForTesting()
+    {
 
         $apiToCall = array("GroupVisitors.getGroupVisitors");
 
@@ -47,7 +69,11 @@ class GroupVisitorsIntegrationTest extends IntegrationTestCase {
     }
 
 
-    public static function getPathToTestDirectory() {
+    /**
+     * @return string
+     */
+    public static function getPathToTestDirectory()
+    {
         return dirname(__FILE__);
     }
 

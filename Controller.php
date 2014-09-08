@@ -10,6 +10,11 @@ namespace Piwik\Plugins\GroupVisitors;
 
 use Piwik\View;
 
+/**
+ * Class Controller
+ *
+ * @package Piwik\Plugins\GroupVisitors
+ */
 class Controller extends \Piwik\Plugin\Controller
 {
 

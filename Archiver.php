@@ -1,13 +1,27 @@
 <?php
+/**
+ * Piwik - free/libre analytics platform
+ *
+ * @link http://piwik.org
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
+ *
+ */
 
 namespace Piwik\Plugins\GroupVisitors;
 use Piwik\DataTable;
 use Piwik\Metrics;
 
-class Archiver extends \Piwik\Plugin\Archiver {
+/**
+ * Class Archiver
+ *
+ * @package Piwik\Plugins\GroupVisitors
+ */
+class Archiver extends \Piwik\Plugin\Archiver
+{
 
 
-    public function aggregateDayReport() {
+    public function aggregateDayReport()
+    {
 
         $dataTable = new DataTable();
 
@@ -22,22 +36,33 @@ class Archiver extends \Piwik\Plugin\Archiver {
         $rows = $results->fetchAll();
 
         $records = array(
-            array("label" => "even", "nb_visits" => $rows[1][Metrics::INDEX_NB_VISITS]),
-            array("label" => "uneven", "nb_visits" => $rows[0][Metrics::INDEX_NB_VISITS])
+            array(
+                "label" => "even",
+                "nb_visits" => $rows[1][Metrics::INDEX_NB_VISITS]),
+            array(
+                "label" => "uneven",
+                "nb_visits" => $rows[0][Metrics::INDEX_NB_VISITS])
         );
 
         $dataTable->addRowsFromSimpleArray($records);
 
         $archiveProcessor = $this->getProcessor();
 
-        $archiveProcessor->insertBlobRecord('GroupVisitors_report', $dataTable->getSerialized($this->maximumRows));
+        $archiveProcessor->insertBlobRecord(
+            'GroupVisitors_report',
+            $dataTable->getSerialized($this->maximumRows)
+        );
 
     }
+
 
     public function aggregateMultipleReports()
     {
         $archiveProcessor = $this->getProcessor();
-        $archiveProcessor->aggregateDataTableRecords('GroupVisitors_report', $this->maximumRows);
+        $archiveProcessor->aggregateDataTableRecords(
+            'GroupVisitors_report',
+            $this->maximumRows
+        );
     }
 
 } 
