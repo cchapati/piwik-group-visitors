@@ -2,7 +2,6 @@
 
 namespace Piwik\Plugins\GroupVisitors;
 use Piwik\DataTable;
-use Piwik\Db;
 use Piwik\Metrics;
 
 class Archiver extends \Piwik\Plugin\Archiver {
