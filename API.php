@@ -31,7 +31,7 @@ class API extends \Piwik\Plugin\API
      *
      * @return DataTable|DataTable\Map
      */
-    protected function getMyReport($idSite, $period, $date, $segment = false, $expanded = false)
+    protected function getDataTable($idSite, $period, $date, $segment = false, $expanded = false)
     {
         $archive = Archive::build($idSite, $period, $date, $segment);
         $dataTable = $archive->getDataTable('GroupVisitors_report');
@@ -58,7 +58,7 @@ class API extends \Piwik\Plugin\API
     public function getGroupVisitors($idSite, $period, $date, $segment = false)
     {
 
-        return $this->getMyReport(
+        return $this->getDataTable(
             $idSite,
             $period,
             $date,

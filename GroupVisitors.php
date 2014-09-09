@@ -16,23 +16,4 @@ namespace Piwik\Plugins\GroupVisitors;
 class GroupVisitors extends \Piwik\Plugin
 {
 
-    /**
-     * @return array
-     */
-    public function getListHooksRegistered()
-    {
-
-        return array(
-            'AssetManager.getJavaScriptFiles' => 'getJsFiles',
-        );
-
-    }
-
-    /**
-     * @param array &$jsFiles
-     */
-    public function getJsFiles(&$jsFiles)
-    {
-        $jsFiles[] = '';
-    }
 }

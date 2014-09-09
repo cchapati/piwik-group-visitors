@@ -17,7 +17,6 @@ use Piwik\View;
  */
 class Controller extends \Piwik\Plugin\Controller
 {
-
     /**
      * @return string
      */
@@ -29,7 +28,6 @@ class Controller extends \Piwik\Plugin\Controller
 
         return $view->render();
     }
-
     /**
      * @return string|void
      */

@@ -19,6 +19,8 @@ use Piwik\Metrics;
 class Archiver extends \Piwik\Plugin\Archiver
 {
 
+    const ARCHIVE_NAME = "GroupVisitors_report";
+
     public function aggregateDayReport()
     {
 
@@ -48,7 +50,7 @@ class Archiver extends \Piwik\Plugin\Archiver
         $archiveProcessor = $this->getProcessor();
 
         $archiveProcessor->insertBlobRecord(
-            'GroupVisitors_report',
+            self::ARCHIVE_NAME,
             $dataTable->getSerialized($this->maximumRows)
         );
 
@@ -58,7 +60,7 @@ class Archiver extends \Piwik\Plugin\Archiver
     {
         $archiveProcessor = $this->getProcessor();
         $archiveProcessor->aggregateDataTableRecords(
-            'GroupVisitors_report',
+            self::ARCHIVE_NAME,
             $this->maximumRows
         );
     }
