@@ -11,7 +11,6 @@ namespace Piwik\Plugins\GroupVisitors;
 
 use Piwik\Piwik;
 use Piwik\DataTable;
-use Piwik\DataTable\Row;
 use Piwik\Archive;
 
 /**

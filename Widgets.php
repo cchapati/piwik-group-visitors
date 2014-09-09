@@ -9,7 +9,7 @@
 namespace Piwik\Plugins\GroupVisitors;
 
 use Piwik\View;
-use Piwik\WidgetsList;
+
 
 /**
  * Class Widgets
