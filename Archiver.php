@@ -2,7 +2,7 @@
 /**
  * Piwik - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link    http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
@@ -18,7 +18,6 @@ use Piwik\Metrics;
  */
 class Archiver extends \Piwik\Plugin\Archiver
 {
-
 
     public function aggregateDayReport()
     {
@@ -54,7 +53,6 @@ class Archiver extends \Piwik\Plugin\Archiver
         );
 
     }
-
 
     public function aggregateMultipleReports()
     {

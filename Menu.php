@@ -2,7 +2,7 @@
 /**
  * Piwik - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link    http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
@@ -20,7 +20,6 @@ class Menu extends \Piwik\Plugin\Menu
 {
 
     /**
-     *
      * @param MenuReporting $menu
      */
     public function configureReportingMenu(MenuReporting $menu)

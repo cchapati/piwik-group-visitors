@@ -2,7 +2,7 @@
 /**
  * Piwik - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link    http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
@@ -14,6 +14,7 @@ use Piwik\Date;
 
 /**
  * Class VisitsFixture
+ *
  * @package Piwik\Plugins\GroupVisitors\tests\Fixtures
  */
 class VisitsFixture extends Fixture
@@ -29,6 +30,7 @@ class VisitsFixture extends Fixture
         $this->setUpWebsite();
         $this->trackVisits();
     }
+
 
     public function tearDown()
     {
@@ -46,6 +48,7 @@ class VisitsFixture extends Fixture
  
     }
 
+
     public function trackVisits()
     {
 
@@ -57,8 +60,7 @@ class VisitsFixture extends Fixture
 
         $hours = array(2, 4, 6, 8, 10, 1, 3, 5, 7);
 
-        foreach($hours as $hour)
-        {
+        foreach ($hours as $hour) {
             $tracker->setForceVisitDateTime(
                 Date::factory($this->dateTime)->addHour($hour)->getDatetime()
             );

@@ -2,7 +2,7 @@
 /**
  * Piwik - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link    http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
@@ -18,6 +18,9 @@ use Piwik\View;
 class Controller extends \Piwik\Plugin\Controller
 {
 
+    /**
+     * @return string
+     */
     public function index()
     {
         $view = new View('@GroupVisitors/index.twig');
@@ -27,6 +30,9 @@ class Controller extends \Piwik\Plugin\Controller
         return $view->render();
     }
 
+    /**
+     * @return string|void
+     */
     public function getGroupVisitors()
     {
         return $this->renderReport(__FUNCTION__);

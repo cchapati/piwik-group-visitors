@@ -2,7 +2,7 @@
 /**
  * Piwik - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link    http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
@@ -36,10 +36,10 @@ class GroupVisitorsIntegrationTest extends IntegrationTestCase
     }
 
     /**
-     * @param $api
-     * @param $params
-     * @dataProvider getApiForTesting
-     * @group GroupVisitorsIntegrationTest
+     * @param mixed     $api
+     * @param array     $params
+     * @dataProvider    getApiForTesting
+     * @group           GroupVisitorsIntegrationTest
      */
     public function testApi($api, $params)
     {

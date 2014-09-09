@@ -2,7 +2,7 @@
 /**
  * Piwik - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link    http://piwik.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  *
  */
@@ -29,7 +29,7 @@ class GroupVisitors extends \Piwik\Plugin
     }
 
     /**
-     * @param $jsFiles
+     * @param array &$jsFiles
      */
     public function getJsFiles(&$jsFiles)
     {
